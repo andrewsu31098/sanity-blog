@@ -26,6 +26,7 @@ const ptComponents = {
 };
 
 const Post = ({ post }) => {
+  if (!post) return null;
   const {
     title = "Missing title",
     name = "Missing name",
@@ -72,7 +73,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths.map((slug) => ({ params: { slug } })),
-    fallback: true,
+    fallback: false,
   };
 }
 
